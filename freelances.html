@@ -3,13 +3,224 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AfriTalent</title>
+    <title>AfriTalent - Nos Freelances</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bundle.min.js"></script>
-    <script src="js/main.js"></script>
+  <header>
+    <nav class="navbar navbar-expand-lg">
+      <div class="container">
+         <a class="navbar-brand logo" href="index.html">
+                  <span class="tech-icon">🛡️</span> Afri<span>Talent</span>
+                </a>
+        <div id="navbarNav">
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="freelances.html">Freelances</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+          <button id="darkModeToggle">Mode Sombre</button>
+          <a href="contact.html">Rejoindre AfriTalent</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main class="container my-5">
+
+    <section class="text-center mb-5">
+      <h1>Trouvez le talent idéal pour vos projets tech</h1>
+      <p>Explorez les profils de nos experts tech qualifiés à travers le continent.</p>
+    </section>
+
+    <section class="mb-5 text-center">
+      <h2>Filtrer par expertise :</h2>
+      <div>
+        <button class="filter-btn" data-category="all">Tous</button>
+        <button class="filter-btn" data-category="web">Développement Web</button>
+        <button class="filter-btn" data-category="design">Design UI/UX</button>
+        <button class="filter-btn" data-category="data">Data & IA</button>
+        <button class="filter-btn" data-category="devops">DevOps & Cloud</button>
+      </div>
+    </section>
+
+    <section class="freelance-grid-container">
+      <div class="row g-4">
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+          <div class="card">
+            <img src="images/freelance1.jpg" alt="Photo de Fatou Diop">
+            <div class="card-body">
+              <h3>Fatou Diop</h3>
+              <h4>Développeuse Fullstack Django & React</h4>
+              <p>Passionnée par la création d'applications web robustes, scalables et centrées sur l'utilisateur.</p>
+              <p><strong>Tarif :</strong> 45 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (5.0)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="design">
+          <div class="card">
+            <img src="images/freelance2.jpg" alt="Photo de Moussa Kamara">
+            <div class="card-body">
+              <h3>Moussa Kamara</h3>
+              <h4>Product Designer UI/UX</h4>
+              <p>Spécialisé dans le prototypage rapide sur Figma et la conception d'interfaces mobiles africaines.</p>
+              <p><strong>Tarif :</strong> 40 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (4.8)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="data">
+          <div class="card">
+            <img src="images/freelance3.jpg" alt="Photo d'Awa Ndiaye">
+            <div class="card-body">
+              <h3>Awa Ndiaye</h3>
+              <h4>Data Scientist & Experte LLM</h4>
+              <p>J'accompagne les entreprises dans l'analyse de leurs données de masse et l'intégration de modèles d'IA.</p>
+              <p><strong>Tarif :</strong> 60 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (4.9)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="devops">
+          <div class="card">
+            <img src="images/freelance4.jpg" alt="Photo de Samuel Mensah">
+            <div class="card-body">
+              <h3>Samuel Mensah</h3>
+              <h4>Ingénieur DevOps & Architecte Cloud AWS</h4>
+              <p>Expert dans la mise en place de pipelines CI/CD automatisés et la gestion de conteneurs Kubernetes.</p>
+              <p><strong>Tarif :</strong> 55 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (5.0)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+          <div class="card">
+            <img src="images/freelance5.jpg" alt="Photo de Koffi Mensah">
+            <div class="card-body">
+              <h3>Koffi Mensah</h3>
+              <h4>Développeur Mobile Flutter</h4>
+              <p>Création d'applications mobiles natives cross-platform performantes et légères pour Android et iOS.</p>
+              <p><strong>Tarif :</strong> 38 € / heure</p>
+              <p><span>⭐⭐⭐⭐ (4.6)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="design">
+          <div class="card">
+            <img src="images/freelance6.jpg" alt="Photo de Amina Bello">
+            <div class="card-body">
+              <h3>Amina Bello</h3>
+              <h4>UX Researcher & Stratège Mobile</h4>
+              <p>Analyses d'utilisabilité avancées et audits ergonomiques complets pour optimiser la conversion de vos applications.</p>
+              <p><strong>Tarif :</strong> 42 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (4.9)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="data">
+          <div class="card">
+            <img src="images/freelance7.jpg" alt="Photo de Chinedu Okafor">
+            <div class="card-body">
+              <h3>Chinedu Okafor</h3>
+              <h4>Ingénieur Machine Learning</h4>
+              <p>Conception et entraînement d'algorithmes de vision par ordinateur et de traitement naturel du langage.</p>
+              <p><strong>Tarif :</strong> 65 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (4.7)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="devops">
+          <div class="card">
+            <img src="images/freelance8.jpg" alt="Photo d'Idrissa Diallo">
+            <div class="card-body">
+              <h3>Idrissa Diallo</h3>
+              <h4>Administrateur Systèmes Linux & Cloud Azure</h4>
+              <p>Sécurisation d'infrastructures serveurs, migrations cloud vers Azure et supervision réseau en continu.</p>
+              <p><strong>Tarif :</strong> 50 € / heure</p>
+              <p><span>⭐⭐⭐⭐ (4.5)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+          <div class="card">
+            <img src="images/freelance9.jpg" alt="Photo de Sarah Touré">
+            <div class="card-body">
+              <h3>Sarah Touré</h3>
+              <h4>Développeuse Backend Node.js & Go</h4>
+              <p>Spécialisée dans la conception d'API RESTful ultra-rapides et la gestion de bases de données relationnelles complexes.</p>
+              <p><strong>Tarif :</strong> 48 € / heure</p>
+              <p><span>⭐⭐⭐⭐⭐ (5.0)</span></p>
+              <a href="#">Voir le profil</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="footer-row">
+        <div class="footer-col">
+          <h5>AfriTalent</h5>
+          <p>Plateforme de mise en relation entre les meilleurs freelances tech africains et les entreprises du monde entier.</p>
+          <img src="images/logo-footer.png" alt="Logo secondaire">
+        </div>
+        <div class="footer-col">
+          <h5>Liens utiles</h5>
+          <ul>
+            <li><a href="index.html">Accueil</a></li>
+            <li><a href="freelances.html">Freelances</a></li>
+            <li><a href="tarifs.html">Tarifs</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Ressources</h5>
+          <ul>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <p>Email : contact@afritalent.fictif</p>
+          <p>Téléphone : +221 33 000 00 00</p>
+          <p>Adresse : Dakar, Sénégal</p>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; <span id="year">2026</span> AfriTalent. Tous droits réservés.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bundle.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 </html>
