@@ -1,0 +1,61 @@
+/* ==========================================================================
+   1. VARIABLES CSS (6 obligatoires) & POLICES GOOGLE FONTS
+   ========================================================================== */
+/* Importation des 2 Google Fonts (Titres: Poppins / Corps: Inter) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@600;700&display=swap');
+
+:root {
+    /* Ta palette personnalisée issue de l'image */
+    --primary-color: #bfa18f;       /* 1. Couleur principale (Taupe/Sable soutenu) */
+    --secondary-color: #d9c5b2;     /* 2. Couleur secondaire (Beige doux) */
+    --light-color: #f5efe6;         /* 3. Couleur claire (Crème de fond principal) */
+    --dark-color: #3e3835;          /* 4. Couleur sombre (Texte et contrastes foncés) */
+    
+    /* Typographie */
+    --font-titles: 'Poppins', sans-serif; /* 5. Police pour les titres */
+    --font-body: 'Inter', sans-serif;     /* 6. Police pour le corps de texte */
+}
+
+/* ==========================================================================
+   2. RESET CSS & STYLES DE BASE (Marges, paddings, body)
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-titles);
+    color: var(--dark-color);
+}
+
+/* ==========================================================================
+   3. NAVBAR STYLISÉE (Liens alignés)
+   ========================================================================== */
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid var(--secondary-color);
+}
+
+/* Alignement horizontal des liens du menu */
+#navbarNav ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin: 0;
+    padding: 0;
+}
+
+#navbarNav ul li a {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+}
