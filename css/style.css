@@ -59,3 +59,285 @@ header {
     color: var(--dark-color);
     font-weight: 500;
 }
+/* ==========================================================================
+   4. SECTION HERO (Disposition asymétrique & Typographie expressive)
+   ========================================================================== */
+.hero-section {
+    padding: 5rem 0;
+    background-color: var(--light-color); /* Ton fond crème #F5EFE6 */
+}
+
+/* Aligne le texte à gauche et l'image à droite de façon asymétrique */
+.hero-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+/* Bloc de texte (prend un peu plus de la moitié de l'espace) */
+.hero-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+/* H1 très grand et expressif avec ta police Poppins */
+.hero-text h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+    color: var(--dark-color); /* Ton marron/taupe foncé */
+    margin-bottom: 1.5rem;
+}
+
+.hero-text p {
+    font-size: 1.2rem;
+    color: var(--dark-color);
+    opacity: 0.9;
+    margin-bottom: 2.5rem;
+}
+
+/* Conteneur des deux boutons d'action (CTA) */
+.hero-buttons {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+/* Style de tes boutons personnalisés avec ta palette */
+.hero-btn-primary {
+    background-color: var(--primary-color); /* Taupe soutenu */
+    color: #ffffff !important;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    border: none;
+    transition: background-color 0.2s ease;
+}
+
+.hero-btn-primary:hover {
+    background-color: var(--dark-color);
+}
+
+.hero-btn-secondary {
+    background-color: transparent;
+    color: var(--dark-color) !important;
+    padding: 0.8rem 1.8rem;
+    border-radius: 8px;
+    font-weight: 500;
+    border: 2px solid var(--secondary-color); /* Bordure beige doux */
+    transition: all 0.2s ease;
+}
+
+.hero-btn-secondary:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Bloc Image (prend le reste de l'espace à droite) */
+.hero-image {
+    flex: 1;
+    min-width: 300px;
+    text-center: right;
+}
+
+/* Image fluide et légèrement stylisée */
+.hero-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+}/* ==========================================================================
+   5. SECTION "COMMENT ÇA MARCHE" (Bento Grid avec CSS Grid)
+   ========================================================================== */
+.bento-grid-section {
+    padding: 5rem 0;
+    background-color: #ffffff; /* Fond blanc pour détacher de la section Hero */
+}
+
+/* Conteneur principal en CSS Grid */
+.bento-raw-container {
+    display: grid;
+    grid-template-columns: repeat(3, 150fr); /* 3 colonnes de base */
+    gap: 1.5rem; /* Espace entre les cases */
+    margin-top: 3rem;
+}
+
+/* Style général de chaque carte Bento */
+.bento-card {
+    background-color: var(--light-color); /* Ton fond crème #F5EFE6 */
+    border: 1px solid var(--secondary-color); /* Bordure beige doux */
+    border-radius: 16px;
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Effet de disposition asymétrique pour la Bento Box (sur grand écran) */
+/* La carte 1 (Inscription) prendra deux colonnes de large */
+.bento-card:nth-child(1) {
+    grid-column: span 2;
+}
+
+/* La carte 2 (Trouver une mission) prendra une colonne */
+.bento-card:nth-child(2) {
+    grid-column: span 1;
+}
+
+/* La carte 3 (Travailler) occupera toute la largeur en dessous */
+.bento-card:nth-child(3) {
+    grid-column: span 3;
+    flex-direction: row; /* Aligne le texte horizontalement pour cette grande carte */
+    align-items: center;
+    gap: 2rem;
+}
+
+/* Stylisation des petits éléments à l'intérieur */
+.bento-card span {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Ton taupe #BFA18F */
+    opacity: 0.3;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+}
+
+.bento-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 1.5rem;
+}
+
+/* Ajustement pour le texte de la carte 3 qui est à l'horizontale */
+.bento-card:nth-child(3) .bento-text-wrapper {
+    flex: 1;
+}
+
+.bento-card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.bento-card p {
+    font-size: 1rem;
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin: 0;
+}
+/* ==========================================================================
+   6. SECTION "CATÉGORIES DE SERVICES" (Cartes & Effets Hover obligatoires)
+   ========================================================================== */
+.categories-section {
+    padding: 5rem 0;
+    background-color: var(--light-color); /* Ton fond crème #F5EFE6 */
+}
+
+/* Style de base pour chaque carte de service */
+.category-card {
+    background-color: #ffffff;
+    border: 1px solid var(--secondary-color); /* Bordure beige doux */
+    border-radius: 12px;
+    padding: 2rem;
+    text-align: center;
+    /* Transition fluide indispensable pour l'effet de survol */
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    height: 100%; /* Pour que toutes les cartes aient la même hauteur */
+}
+
+/* Icônes dans les cartes */
+.category-card i {
+    font-size: 2.5rem;
+    color: var(--primary-color); /* Ton taupe #BFA18F */
+    margin-bottom: 1.5rem;
+    display: inline-block;
+}
+
+.category-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+    color: var(--dark-color);
+}
+
+.category-card p {
+    font-size: 0.95rem;
+    color: var(--dark-color);
+    opacity: 0.8;
+    margin: 0;
+}
+
+/* L'EFFET HOVER EXIGÉ PAR LE SUJET */
+.category-card:hover {
+    transform: translateY(-8px); /* La carte se soulève de 8 pixels */
+    box-shadow: 0 10px 20px rgba(62, 56, 53, 0.15); /* Apparition d'une ombre douce */
+    border-color: var(--primary-color); /* La bordure devient taupe au survol */
+}
+/* ==========================================================================
+   7. SECTION TÉMOIGNAGES (Carrousel Bootstrap - Version Corrigée)
+   ========================================================================== */
+.testimonials-section {
+    padding: 6rem 0; /* Plus d'espace en haut et en bas pour respirer */
+    background-color: var(--bg-light-color); /* Utilise ton fond crème */
+}
+
+/* Centre et limite la largeur du carrousel */
+.carousel-inner {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.testimonial-item {
+    text-align: center;
+    padding: 2rem 3rem; /* Plus d'espace sur les côtés pour éviter que le texte touche les flèches */
+}
+
+.testimonial-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin: 0 auto 1.5rem auto;
+    display: block;
+    border: 3px solid var(--primary-color); /* Ta bordure taupe */
+}
+
+.testimonial-item p {
+    font-size: 1.15rem;
+    font-style: italic;
+    color: var(--dark-color);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.testimonial-item h5 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--dark-color);
+    margin-bottom: 0.2rem;
+}
+
+.testimonial-item small {
+    display: block;
+    font-size: 0.9rem;
+    color: var(--primary-color); /* Le métier s'affiche en taupe */
+}
+
+/* Correction des flèches pour qu'elles soient bien visibles (en taupe) */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--primary-color) !important; /* Force la couleur taupe */
+    border-radius: 50%;
+    width: 3rem;
+    height: 3rem;
+    background-size: 50%; /* Centre bien la flèche blanche dans le rond taupe */
+}
+
+/* Écarte légèrement les flèches du texte */
+.carousel-control-prev {
+    left: -50px;
+}
+.carousel-control-next {
+    right: -50px;
+}
