@@ -134,18 +134,23 @@ header {
 }
 
 /* Bloc Image (prend le reste de l'espace à droite) */
-.hero-image {
+/* Trouve et remplace ces deux blocs vers la ligne 138-145 */
+.hero-images {
     flex: 1;
     min-width: 300px;
-    text-center: right;
+    text-align: center;
+    display: flex;         /* Ajoute ça pour centrer la boîte */
+    justify-content: center;
+    align-items: center;
 }
 
-/* Image fluide et légèrement stylisée */
-.hero-image img {
-    max-width: 100%;
-    height: auto;
+.hero-images img {
+    max-width: 95% !important; /* Force la réduction à 60% de sa taille */
+    height: auto !important;
     border-radius: 12px;
-}/* ==========================================================================
+    object-fit: contain;
+}
+/* ==========================================================================
    5. SECTION "COMMENT ÇA MARCHE" (Bento Grid avec CSS Grid)
    ========================================================================== */
 .bento-grid-section {
@@ -340,4 +345,117 @@ header {
 }
 .carousel-control-next {
     right: -50px;
+}
+/* ==========================================================================
+   8. PAGE FREELANCES : CARTES DE PROFIL (Ajustements)
+   ========================================================================== */
+.card, .freelance-card {
+    background-color: #ffffff;
+    border-radius: 12px;
+    
+    /* 1. CORRECTION DES COINS : Empêche l'image de dépasser des bords arrondis */
+    overflow: hidden; 
+    
+    /* 2. ALIGNEMENT DES BOUTONS : Aligne tout parfaitement en hauteur */
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 3. FORCE LE BOUTON À RESTER TOUT EN BAS DE LA CARTE */
+.card-body { 
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.card-body a, .card-body .btn {
+    margin-top: auto; /* Pousse le lien "Voir le profil" tout en bas de la boîte */
+    padding-top: 0.5rem;
+}
+/* ==========================================================================
+   9. RESPONSIVE DESIGN (Media Queries)
+   ========================================================================== */
+
+/* 🌍 AJUSTEMENTS POUR TABLETTE (Écrans inférieurs à 992px) */
+@media (max-width: 991.98px) {
+    .hero-row {
+        flex-direction: column; /* L'image passe sous le texte dans le Hero */
+        text-align: center;
+    }
+    
+    .hero-text {
+        min-width: 100%;
+        margin-bottom: 2rem;
+    }
+    
+    /* Évite que les flèches du carrousel sortent de l'écran */
+    .carousel-control-prev { left: 10px; }
+    .carousel-control-next { right: 10px; }
+}
+
+/* 📱 AJUSTEMENTS POUR MOBILE (Écrans inférieurs à 768px) */
+@media (max-width: 767.98px) {
+    /* On réduit légèrement la taille des gros titres pour qu'ils ne débordent pas */
+    h1, .hero-text h1 {
+        font-size: 2rem !important;
+    }
+    
+    h2 {
+        font-size: 1.75rem !important;
+    }
+    
+    .bento-raw-container {
+        grid-template-columns: 1fr; /* La bento grid passe sur une seule colonne */
+    }
+    
+    .bento-card {
+        grid-column: span 1 !important; /* Toutes les cartes Bento prennent la pleine largeur */
+        padding: 1.5rem;
+    }
+    
+    .testimonial-item {
+        padding: 1.5rem 1rem;
+    }
+    
+    .testimonial-item p {
+        font-size: 1rem;
+    }
+    /* Ajustement de la liste pour le menu responsive */
+.navbar-nav {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    gap: 1.5rem;
+}
+
+/* Style de base pour les liens de navigation */
+.nav-link {
+    text-decoration: none;
+    color: var(--dark-color);
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Sur mobile, on empile les éléments proprement */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+    .navbar-nav {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+        margin-bottom: 1rem;
+    }
+    .navigation-actions {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+    }
 }
