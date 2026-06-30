@@ -710,3 +710,17 @@ body.dark-mode .card-valeur {
 body.dark-mode .card-valeur .text-muted {
     color: #b0b0b0 !important;
 }
+/* --- ANIMATIONS AU SCROLL (COMMIT 7) --- */
+
+/* État initial : invisible et légèrement décalé vers le bas */
+.fade-in-section {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+
+/* État animé : visible et à sa place d'origine */
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}

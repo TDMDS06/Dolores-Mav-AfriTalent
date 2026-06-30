@@ -58,3 +58,59 @@ if (backToTopBtn) {
         });
     });
 }
+document.addEventListener("DOMContentLoaded", () => {
+    
+    // ==========================================
+    // 1. ANIMATION DES SECTIONS (FADE-IN)
+    // ==========================================
+    const sections = document.querySelectorAll('.fade-in-section');
+    
+    const sectionObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target); // On arrête d'observer une fois visible
+            }
+        });
+    }, {
+        threshold: 0.1 // Déclenche l'animation dès que 10% de la section est visible
+    });
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+
+    // ==========================================
+    // 2. ANIMATION DES COMPTEURS DE STATISTIQUES
+    // ==========================================
+    const counters = document.querySelectorAll('.counter'); // Ajoute la classe 'counter' à tes nombres (ex: 900, 500)
+    
+    const animateCounter = (counter) => {
+        const target = +counter.getAttribute('data-target'); // On récupère la valeur cible (ex: 900)
+        const count = +counter.innerText;
+        const speed = 100; // Plus le chiffre est grand, plus c'est rapide
+        
+        const increment = target / speed;
+
+        if (count < target) {
+            counter.innerText = Math.ceil(count + increment);
+            setTimeout(() => animateCounter(counter), 15);
+        } else {
+            counter.innerText = target;
+        }
+    };
+
+    const counterObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const counter = entry.target;
+                animateCounter(counter);
+                observer.unobserve(counter); // On anime une seule fois
+            }
+        });
+    }, { threshold: 0.5 });
+
+    counters.forEach(counter => {
+        counterObserver.observe(counter);
+    });
+});
