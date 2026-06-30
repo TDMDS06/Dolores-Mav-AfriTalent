@@ -1,3 +1,7 @@
+
+body {
+    padding-top: 70px; /* À ajuster selon la hauteur de ta navbar */
+}
 /* ==========================================================================
    1. VARIABLES CSS (6 obligatoires) & POLICES GOOGLE FONTS
    ========================================================================== */
@@ -102,6 +106,7 @@ header {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    margin-bottom: 3rem;
 }
 
 /* Style de tes boutons personnalisés avec ta palette */
@@ -421,14 +426,7 @@ header {
     .testimonial-item p {
         font-size: 1rem;
     }
-    /* Ajustement de la liste pour le menu responsive */
-.navbar-nav {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 0;
-    display: flex;
-    gap: 1.5rem;
-}
+
 
 /* Style de base pour les liens de navigation */
 .nav-link {
@@ -458,4 +456,257 @@ header {
         align-items: flex-start;
         width: 100%;
     }
+}
+
+/* ==========================================================================
+   10. STYLES POUR LE COMMIT 6 (DOM & INTERACTIONS)
+   ========================================================================== */
+
+/* Classe ajoutée à la navbar en JS lors du scroll */
+.navbar.scrolled {
+    background-color: #ffffff !important; /* Force le fond blanc opaque */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important; /* Ajoute une ombre élégante */
+    padding-top: 0.5rem !important; /* Effet shrink (réduction de hauteur) */
+    padding-bottom: 0.5rem !important;
+    transition: all 0.3s ease;
+}
+
+/* Bouton Retour en haut fixe */
+#backToTop {
+    position: fixed;
+    bottom: 20px;
+    right: -60px; /* Caché par défaut à droite de l'écran */
+    z-index: 99;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    padding: 12px;
+    border-radius: 50%;
+    font-size: 18px;
+    transition: right 0.4s ease; /* Animation d'apparition fluide */
+}
+
+/* Classe ajoutée en JS pour faire apparaître le bouton */
+#backToTop.show {
+    right: 20px;
+}
+/* ==========================================================================
+   11. CORRECTION ALIGNEMENT NAVBAR RESPONSIVE (COMMIT 6)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+    .navbar-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        margin-bottom: 1rem;
+    }
+    .navbar-collapse .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        width: 100%;
+    }
+}
+/* ==========================================================================
+   11. CONFIGURATION RESPONSIVE ET NAVBAR (COMMIT 6)
+   ========================================================================== */
+
+/* Styles appliqués UNIQUEMENT sur mobile et tablette (Écrans inférieurs à 992px) */
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        padding: 1rem 0;
+    }
+    
+    /* Force les liens du menu à s'empiler à la verticale seulement sur mobile */
+    .navbar-nav {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 1rem !important;
+        margin-bottom: 1rem;
+    }
+    
+    /* Aligne les boutons Mode Sombre et Rejoindre à la verticale sur mobile */
+    .navbar-collapse .d-flex {
+        flex-direction: column;
+        align-items: flex-start !important;
+        width: 100%;
+        gap: 1rem !important;
+    }
+}
+
+/* Styles pour la navbar quand on fait défiler la page (Scroll) */
+.navbar.scrolled {
+    background-color: #ffffff !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    transition: all 0.3s ease;
+}
+}
+/* ==========================================================================
+   15. STYLE DU FOOTER
+   ========================================================================== */
+footer a:hover {
+    color: #0d6efd !important; /* Change pour la couleur principale de ton site (ex: le bleu Bootstrap) */
+    transition: color 0.2s ease-in-out;
+}
+/* ==========================================================================
+   16. BOUTONS HERO PERSONNALISÉS
+   ========================================================================== */
+.btn-primary {
+    background-color: #3b82f6 !important; /* Ajuste avec ton bleu exact */
+    border-color: #3b82f6 !important;
+}
+
+.btn-primary:hover {
+    background-color: #2563eb !important;
+    border-color: #2563eb !important;
+}
+
+.btn-outline-primary {
+    color: #3b82f6 !important;
+    border-color: #3b82f6 !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+* DARK MODE */
+.dark-mode {
+  background-color: #121212;
+  color: white;
+}
+
+.dark-mode .card {
+  background-color: #1e1e1e;
+  color: white;
+}
+
+.dark-mode .navbar {
+  background-color: #1e1e1e !important;
+}
+
+.dark-mode footer {
+  background-color: #1e1e1e !important;
+  color: white;
+}
+/* ==========================================================================
+   17. BOUTONS DE FILTRAGE
+   ========================================================================== */
+.btn-outline-secondary {
+    border-color: #dee2e6 !important; /* Bordure grise très discrète */
+    color: #495057 !important;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+    background-color: #3b82f6 !important; /* Devient bleu au survol */
+    border-color: #3b82f6 !important;
+    color: #ffffff !important;
+}
+/* ==========================================================================
+   FORCE ABSOLUE MODE SOMBRE GENERALE
+   ========================================================================== */
+body.dark-mode,
+body.dark-mode * {
+    background-color: #121212 !important;
+    color: #ffffff !important;
+    background-image: none !important; /* Supprime les images de fond blanches */
+}
+
+/* Force les liens, boutons outline et textes spécifiques en blanc */
+body.dark-mode a,
+body.dark-mode .nav-link,
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p,
+body.dark-mode span {
+    color: #ffffff !important;
+}
+
+/* Optionnel : Fait ressortir le bouton Mode Sombre quand il est actif */
+body.dark-mode #darkModeBtn {
+    background-color: #ffffff !important;
+    color: #121212 !important;
+    border-color: #ffffff !important;
+}
+/* ==========================================================================
+   STYLE DU BOUTON RETOUR EN HAUT (COMMIT 6)
+   ========================================================================== */
+#backToTop {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: -60px !important; /* Caché à droite par défaut */
+    z-index: 9999 !important;
+    width: 50px !important;
+    height: 50px !important;
+    background-color: #007bff !important; /* Couleur bleue Bootstrap (ou change selon tes goûts) */
+    color: white !important;
+    border: none !important;
+    border-radius: 50% !important; /* Devient un cercle complet */
+    cursor: pointer !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    font-size: 20px !important;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3) !important;
+    transition: right 0.4s ease, opacity 0.4s ease !important;
+    opacity: 0 !important;
+}
+
+/* Classe ajoutée par le JavaScript quand on scroll */
+#backToTop.show {
+    right: 20px !important; /* Glisse vers la gauche pour apparaître sur l'écran */
+    opacity: 1 !important;
+}
+/* Bloque la navbar en haut de l'écran pendant le scroll */
+.navbar {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Permet de passer par-dessus tous les éléments du site */
+    transition: all 0.3s ease; /* Pour que le changement de couleur reste fluide */
+}
+.navbar_scrolled {
+    /* Fond blanc avec 90% d'opacité (légèrement transparent au scroll) */
+    background-color: rgba(255, 255, 255, 0.9) !important; 
+    
+    /* Effet de flou de l'arrière-plan (optionnel mais très moderne, style Apple) */
+    backdrop-filter: blur(8px); 
+    -webkit-backdrop-filter: blur(8px);
+    
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08) !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    transition: all 0.3s ease !important;
+}
+/* Style personnalisé pour les cartes de valeurs */
+.card-valeur {
+    background-color: #ffffff;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Petit effet de survol sympa */
+.card-valeur:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12) !important;
+}
+
+/* Ajustement pour le mode sombre si tu l'actives */
+body.dark-mode .card-valeur {
+    background-color: #2b2b2b;
+    color: #ffffff;
+}
+body.dark-mode .card-valeur .text-muted {
+    color: #b0b0b0 !important;
 }
