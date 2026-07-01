@@ -114,3 +114,65 @@ document.addEventListener("DOMContentLoaded", () => {
         counterObserver.observe(counter);
     });
 });
+// ==========================================================================
+// FILTRAGE DYNAMIQUE DES FREELANCES - COMPATIBLE BOOTSTRAP GRID
+// ==========================================================================
+const filterButtons = document.querySelectorAll('.filter-btn');
+const freelanceCards = document.querySelectorAll('.freelance-card');
+
+if (filterButtons.length > 0 && freelanceCards.length > 0) {
+    filterButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            // 1. Gérer l'état actif des boutons
+            filterButtons.forEach(btn => {
+                btn.classList.remove('btn-primary');
+                btn.classList.add('btn-outline-primary');
+            });
+            button.classList.remove('btn-outline-primary');
+            button.classList.add('btn-primary');
+
+            const filterValue = button.getAttribute('data-filter');
+
+            // 2. Filtrer les cartes avec les classes Bootstrap
+            freelanceCards.forEach(card => {
+                // On réinitialise d'abord les styles inline s'il en restait
+                card.style.removeProperty('display');
+
+                if (filterValue === 'all' || card.getAttribute('data-category') === filterValue) {
+                    card.classList.remove('d-none'); // On affiche la colonne proprement
+                } else {
+                    card.classList.add('d-none');    // On cache la colonne proprement
+                }
+            });
+        });
+    });
+}
+// ==========================================================================
+// ANIMATION DE COMPTEUR DÉFILANT (DE 0 À LA VALEUR CIBLE)
+// ==========================================================================
+const counters = document.querySelectorAll('.display-counter');
+
+counters.forEach(counter => {
+    const updateCount = () => {
+        // On récupère la valeur cible (ex: 2500)
+        const target = parseInt(counter.getAttribute('data-target'));
+        // On récupère la valeur actuelle (au début, 0)
+        const count = parseInt(counter.innerText);
+
+        // On définit la vitesse (plus le diviseur est grand, plus c'est lent)
+        const speed = 100; 
+        const increment = Math.ceil(target / speed);
+
+        // Si la valeur actuelle est inférieure à la cible, on ajoute l'incrément
+        if (count < target) {
+            counter.innerText = count + increment;
+            // On rappelle la fonction après un micro-délai (15ms) pour créer l'effet fluide
+            setTimeout(updateCount, 15);
+        } else {
+            // Sécurité : si on dépasse un poil à cause de l'arrondi, on force la valeur exacte
+            counter.innerText = target;
+        }
+    };
+
+    updateCount();
+});

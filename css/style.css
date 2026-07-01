@@ -724,3 +724,82 @@ body.dark-mode .card-valeur .text-muted {
     opacity: 1;
     transform: translateY(0);
 }
+/* --- CORRECTION MAJEURE DU FILTRAGE DE GRILLE --- */
+
+/* On s'assure que les colonnes restent des blocs flexibles normaux */
+.freelance-card, .freelance-card-wrapper {
+    position: relative !important;
+    top: auto !important;
+    right: auto !important;
+    left: auto !important;
+    float: none !important;
+    height: auto !important;
+}
+
+/* Quand on cache une carte, elle disparait COMPLÈTEMENT du flux sans laisser de résidu de texte */
+.freelance-card.d-none {
+    display: none !important;
+}
+/* Empêche les éléments de la grille de se chevaucher pendant les animations */
+.freelance-card {
+    margin-bottom: 24px;
+    will-change: transform;
+}
+/* Pour accorder tes boutons avec le nouveau logo bordeaux */
+.btn-primary {
+    background-color: #7A1E1E !important;
+    border-color: #7A1E1E !important;
+}
+
+.btn-outline-primary {
+    color: #7A1E1E !important;
+    border-color: #7A1E1E !important;
+}
+
+.btn-outline-primary:hover {
+    background-color: #7A1E1E !important;
+    color: #ffffff !important;
+}
+/* --- ANIMATION DES COMPTEURS --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-counter {
+    animation: fadeInUp 0.8s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Petit effet de survol sympa au passage de la souris */
+.animate-counter:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 24px rgba(122, 30, 30, 0.15) !important;
+}
+/* --- PERSONNALISATION DE LA FAQ (ACCORDÉON) --- */
+.accordion-button:not(.collapsed) {
+    background-color: rgba(122, 30, 30, 0.1) !important; /* Fond bordeaux très clair quand ouvert */
+    color: #7A1E1E !important; /* Texte bordeaux quand ouvert */
+    box-shadow: none !important;
+}
+
+.accordion-button:focus {
+    border-color: #7A1E1E !important;
+    box-shadow: 0 0 0 0.25rem rgba(122, 30, 30, 0.25) !important; /* Lueur bordeaux au clic */
+}
+
+/* Style de la petite flèche rotative */
+.accordion-button::after {
+    transition: transform 0.2s ease-in-out;
+}
+/* Force l'affichage du texte lorsque l'accordéon s'ouvre */
+.accordion-collapse.show {
+    display: block !important;
+    height: auto !important;
+}

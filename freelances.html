@@ -13,9 +13,18 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-light bg-white py-3">
     <div class="container">
-        <a class="navbar-brand logo" href="index.html">
-            <span class="tech-icon">🛡️</span> Afri<span>Talent</span>
-        </a>
+        <a class="navbar-brand d-flex align-items-center" href="index.html" style="gap: 0; text-decoration: none; font-family: 'Times New Roman', Times, serif;">
+    <svg width="170" height="40" viewBox="0 0 170 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <text x="5" y="28" font-family="'Times New Roman', Times, serif" font-size="24" font-weight="bold" fill="#7A1E1E">Afri</text>
+        
+        <g transform="translate(52, 6) scale(0.9)">
+            <path d="M2 3H26V8H2V3Z" fill="#7A1E1E"/>
+            <path d="M7 8H21L17 17V27L21 31H7L11 27V17L7 8Z" fill="#7A1E1E"/>
+        </g>
+        
+        <text x="80" y="28" font-family="'Times New Roman', Times, serif" font-size="24" font-weight="bold" fill="#7A1E1E">Talent</text>
+    </svg>
+</a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -53,19 +62,18 @@
     <div class="text-center my-5">
     <h3 class="fw-bold mb-4">Filtrer par expertise :</h3>
     
-    <div class="d-flex flex-wrap justify-content-center gap-2">
-        <button type="button" class="btn btn-primary px-4 rounded-pill">Tous</button>
-        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill">Développement Web</button>
-        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill">Design UI/UX</button>
-        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill">Data & IA</button>
-        <button type="button" class="btn btn-outline-secondary px-4 rounded-pill">DevOps & Cloud</button>
+    <div class="text-center mb-4">
+        <button class="btn btn-primary filter-btn" data-filter="all">Tous</button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="web">Développement Web</button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="design">Design UI/UX</button>
+        <button class="btn btn-outline-primary filter-btn" data-filter="marketing">Marketing Digital</button>
     </div>
 </div>
 
     <section class="freelance-grid-container">
-      <div class="row g-4">
+      <div class="row g-4 gy-5">
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="web">
           <div class="card">
             <img src="images/Fatou.jpg" alt="Photo de Fatou Diop">
             <div class="card-body">
@@ -79,7 +87,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="design">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="design">
           <div class="card">
             <img src="images/Moussa.jpg" alt="Photo de Moussa Kamara">
             <div class="card-body">
@@ -93,7 +101,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="data">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="web">
           <div class="card">
             <img src="images/awa.jpg" alt="Photo d'Awa Ndiaye">
             <div class="card-body">
@@ -107,7 +115,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="devops">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="web">
           <div class="card">
             <img src="images/Samuel.jpg" alt="Photo de Samuel Mensah">
             <div class="card-body">
@@ -121,7 +129,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="web">
           <div class="card">
             <img src="images/Koffi.jpg" alt="Photo de Koffi Mensah">
             <div class="card-body">
@@ -135,7 +143,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="design">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="design">
           <div class="card">
             <img src="images/Aminata.jpg" alt="Photo de Amina Bello">
             <div class="card-body">
@@ -149,7 +157,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="data">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="data">
           <div class="card">
             <img src="images/Chinedu.jpg" alt="Photo de Chinedu Okafor">
             <div class="card-body">
@@ -163,7 +171,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="devops">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="devops">
           <div class="card">
             <img src="images/idrissa.jpg" alt="Photo d'Idrissa Diallo">
             <div class="card-body">
@@ -177,7 +185,7 @@
           </div>
         </div>
 
-        <div class="col-12 col-md-6 col-lg-4 freelance-card-wrapper" data-category="web">
+        <div class="col-12 col-md-6 col-lg-4 freelance-card" data-category="web">
           <div class="card">
             <img src="images/sara.jpg" alt="Photo de Sarah Touré">
             <div class="card-body">
@@ -255,6 +263,6 @@
   <script src="js/mains.js"></script>
   <button id="backToTop" class="btn btn-primary" title="Retour en haut">⬆️</button>
 
-<script src="js/mains.js"></script>
+<script src="js/mains.js?v=1.2"></script>
 </body>
 </html>
