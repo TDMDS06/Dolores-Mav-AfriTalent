@@ -803,3 +803,36 @@ body.dark-mode .card-valeur .text-muted {
     display: block !important;
     height: auto !important;
 }
+/* Le conteneur principal : on s'assure qu'il ne bloque rien */
+.categories-raw-container {
+    display: block; 
+    width: 100%;
+}
+
+/* Le style de tes cartes individuelles */
+.category-card {
+    background: #ffffff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+    height: 100%; /* Permet d'avoir des cartes de tailles égales */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Optionnel : un petit effet au survol pour faire pro */
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Style pour tes icônes temporaires */
+.icon-placeholder {
+    display: inline-block;
+    background-color: #f8f9fa;
+    color: #7A1E1E;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-style: normal;
+}

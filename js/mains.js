@@ -147,32 +147,77 @@ if (filterButtons.length > 0 && freelanceCards.length > 0) {
         });
     });
 }
-// ==========================================================================
-// ANIMATION DE COMPTEUR DÉFILANT (DE 0 À LA VALEUR CIBLE)
-// ==========================================================================
-const counters = document.querySelectorAll('.display-counter');
+document.addEventListener("DOMContentLoaded", () => {
+    const counters = document.querySelectorAll('.display-counter');
+    const speed = 100; // Plus le nombre est bas, plus l'animation est rapide
 
-counters.forEach(counter => {
-    const updateCount = () => {
-        // On récupère la valeur cible (ex: 2500)
-        const target = parseInt(counter.getAttribute('data-target'));
-        // On récupère la valeur actuelle (au début, 0)
-        const count = parseInt(counter.innerText);
+    const startCounter = (counter) => {
+        const target = +counter.getAttribute('data-target');
+        const updateCount = () => {
+            const current = +counter.innerText;
+            // Calcule l'incrément à chaque étape
+            const increment = Math.ceil(target / speed);
 
-        // On définit la vitesse (plus le diviseur est grand, plus c'est lent)
-        const speed = 100; 
-        const increment = Math.ceil(target / speed);
-
-        // Si la valeur actuelle est inférieure à la cible, on ajoute l'incrément
-        if (count < target) {
-            counter.innerText = count + increment;
-            // On rappelle la fonction après un micro-délai (15ms) pour créer l'effet fluide
-            setTimeout(updateCount, 15);
-        } else {
-            // Sécurité : si on dépasse un poil à cause de l'arrondi, on force la valeur exacte
-            counter.innerText = target;
-        }
+            if (current < target) {
+                // Ajoute l'incrément et relance l'animation
+                counter.innerText = Math.min(current + increment, target);
+                setTimeout(updateCount, 15);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
     };
 
-    updateCount();
+    // Détecte quand la section des compteurs apparaît à l'écran
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target); // Arrête d'observer une fois l'animation jouée
+            }
+        });
+    }, { threshold: 0.5 }); // Déclenche quand 50% de la boîte est visible
+
+    counters.forEach(counter => observer.observe(counter));
 });
+document.addEventListener("DOMContentLoaded", () => {
+    // Ce sélecteur cible à la fois la classe .display-counter et la classe .counter
+    const counters = document.querySelectorAll('.display-counter, .counter');
+    const speed = 80; // Vitesse de l'animation
+
+    const startCounter = (counter) => {
+        const target = parseInt(counter.getAttribute('data-target'), 10);
+        
+        // Si l'élément n'a pas de data-target valide, on ne fait rien
+        if (isNaN(target)) return; 
+
+        const updateCount = () => {
+            const current = parseInt(counter.innerText, 10) || 0;
+            const increment = Math.ceil(target / speed);
+
+            if (current < target) {
+                counter.innerText = Math.min(current + increment, target);
+                setTimeout(updateCount, 20);
+            } else {
+                counter.innerText = target;
+            }
+        };
+        updateCount();
+    };
+
+    // L'Observer déclenche l'animation dès que les chiffres apparaissent à l'écran
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                startCounter(entry.target);
+                observer.unobserve(entry.target); // On anime une seule fois
+            }
+        });
+    }, { threshold: 0.1 });
+
+    counters.forEach(counter => observer.observe(counter));
+});
+
+
+   
